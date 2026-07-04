@@ -1,3 +1,12 @@
 spring:
   application:
     name: foodie-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/foodie?sslmode=disable
+    username: sameer
+    password:
+  jpa:
+    open-in-view: false
+  threads:
+    virtual:
+      enabled: true
