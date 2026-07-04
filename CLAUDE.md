@@ -110,9 +110,10 @@ GET    /api/users/{id}/reviews    All reviews by user (paginated)
   naming instead of renaming.
 - Postgres runs locally already (not via Docker Compose) — datasource config
   points at the user's existing instance.
-- User's editor is VS Code — factor in VS Code-specific nuances (Java/Spring
-  extension pack behavior, run/debug configs, `.vscode/` settings, Gradle
-  view quirks, etc.) when giving guidance.
+- User's editor is IntelliJ IDEA (switched from VS Code) — factor in
+  IntelliJ-specific nuances (Gradle sync, run/debug configs, IntelliJ's
+  Lombok plugin, "Reload Gradle Project", format-on-save, etc.) when giving
+  guidance.
 
 ### Project Structure
 
