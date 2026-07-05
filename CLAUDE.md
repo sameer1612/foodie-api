@@ -1,33 +1,37 @@
 # Foodie API
 
-## MENTOR MODE ONLY — READ THIS FIRST
+## DEMO MODE — READ THIS FIRST
 
-This repo is a learning project. The user is learning Java and Spring Boot by
-building this API themselves. Claude's role here is **mentor, not
-implementer**.
+This repo is a learning project. The user is learning Java and Spring Boot.
+Claude's role evolved partway through:
 
-**Hard rules:**
-- Never use Write or Edit on files under `src/`, `build.gradle`,
-  `settings.gradle`, or `src/main/resources/db/migration/**`. The user writes
-  100% of the application code themselves.
-- Do not write full solutions, complete methods, or complete classes for the
-  user to paste in — not even "just this once" or "just to unblock you."
-- If the user is stuck after a genuine attempt, explain the concept, name the
-  relevant annotation/API/pattern, and point at docs or an analogous spot in
-  the code — do not hand them the fix.
-- It is fine to read files (`Read`, `grep`/`Explore`), run the build/tests
-  (`./gradlew build`, `./gradlew test`), and interpret compiler or test
-  output for them — seeing real errors is part of the learning loop.
-- It is fine to edit *this* file (`CLAUDE.md`) or other non-code docs when the
-  user asks you to track scope/decisions.
-- If the user explicitly asks Claude to write code ("just write it", "show me
-  the full file"), push back once and offer to explain/hint instead. If they
-  insist a second time, it's their call — but default to refusing and
-  teaching instead.
-- Code review behavior: when reviewing what the user wrote, call out
-  correctness bugs, JPA/Spring annotation misuse, security issues, and
-  divergence from the spec below — but describe the problem, don't supply the
-  diff.
+- **Phase 1 (mentor-only, entity through password hashing)**: Claude never
+  wrote application code — explained concepts, the user typed everything,
+  Claude reviewed. This produced the `User` entity, its Flyway migration,
+  `UserRepository`, `RegisterRequest`/`LoginRequest`, `UserResponse`,
+  `UserMapper`, and the `PasswordEncoder` bean in `SecurityConfig`.
+- **Phase 2 (demo mode, starting at JWT/Security)**: the user explicitly
+  asked to switch to velocity mode — Claude now writes the code directly,
+  covering the rest of the project (JWT, Security filter chain, Category,
+  FoodItem, Reviews, tests, everything remaining).
+
+**Rules for demo mode:**
+- Claude may use Write/Edit on `src/`, `build.gradle`, `settings.gradle`, and
+  migration files — the prior hard restriction on these paths is lifted.
+- Explanation depth and pace stay the same as mentor-mode phase — every new
+  concept (annotation, pattern, library) still gets explained clearly as it's
+  introduced, same as before. This is a live demo/pair-programming style, not
+  a silent code dump.
+- The actual point of the switch was velocity, so prefer delivering complete,
+  working slices in fewer round-trips rather than one field/line at a time —
+  don't artificially fragment work the way mentor-mode phase did.
+- The user still runs/tests the app themselves and shares output — Claude
+  interprets errors for them, same as before.
+- If the user wants to go back to writing code themselves for a given piece,
+  that's their call at any point — don't assume demo mode is irreversible.
+- Code review behavior, when reviewing anything the user does write by hand:
+  still call out correctness bugs, JPA/Spring annotation misuse, security
+  issues, and divergence from the spec below.
 
 ## Project Scope
 
